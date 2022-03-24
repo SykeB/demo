@@ -2,99 +2,810 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>video</title>
+
+<link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
+/* pt-serif-regular - latin */
+/* pt-serif-italic - latin */
+/* pt-serif-700 - latin */
+/* pt-serif-700italic - latin */
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+html {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+}
+
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#write {
+	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+			max-width: 914px;
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+a {
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+ul,
+ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
+}
+
+table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+th {
+	text-align: left;
+}
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+code,
+.md-fences {
+	background-color: #dadada;
+}
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.md-fences {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+p + ul,
+p + ol{
+	margin-top: .5em;
+}
+
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
+}
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#write pre.md-meta-block {
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.md-image>.md-meta {
+	color: #9B5146;
+}
+
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+}
+
+
+#write>h3.md-focus:before{
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h4.md-focus:before{
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h5.md-focus:before{
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h6.md-focus:before{
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
+}
+
+.btn-default {
+	background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+	margin-top: 8px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+	opacity: 1;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
+}
+
+.export-detail, .light .export-detail, 
+.light .export-item.active, 
+.light .export-items-list-control {
+	background: #e0e0e0;
+	border-radius: 2px;
+	font-weight: 700;
+	color: inherit
+}
+
+
+</style><title>video</title>
 </head>
-<body><h1 id='稿件博物馆'>稿件博物馆</h1>
-<p>部分240P低画质 by:我只是路过的呀</p>
-<p>官方qq群:<a href='https://jq.qq.com/?_wv=1027&amp;k=O3bZUW4I'>点我加入</a></p>
-<hr />
-<p><strong>av10492</strong></p>
-<blockquote><p>P1 <a href='../vid/p1.mp4'>起源</a></p>
-<p>P2 <a href='../vid/p2.mp4'>久本薯条 (第一集)</a> <a href='../vid/p2-1.MP4'>(第二集)</a></p>
-<p>P3 <a href='../vid/p3.mp4'>全员猎奇 (第一集)</a> <a href='../vid/p3-1.mp4'>(第二集)</a></p>
-<p>P4 <a href='../vid/p4.mp4'>哦做哦做</a></p>
-<p>P5 <a href='../vid/p5.mp4'>久本杂交 (第一集)</a> <a href='../vid/p5-1.mp4'>(第二集)</a></p>
-<p>P6 <a href='../vid/p6.mp4'>益虫观察 (第一集)</a> <a href='../vid/p6-1.mp4'>(第二集)</a></p>
-<p>P7 <a href='../vid/p7.mp4'>喷血</a></p>
-<p>P8 <a href='../vid/p8.mp4'>超级便便便</a></p>
-<p>&nbsp;</p>
-</blockquote>
-<p><strong>优秀作品:</strong></p>
-<blockquote><p><a href='https://pan.2233yun.cn/s/Aagi4/video?name=%E3%80%901080p60fps%E3%80%91%E4%B8%8D%E5%8F%AF%E8%A6%96%E4%B9%85%E6%9C%AC%20%EF%BD%9E%20Airmoto%20of%20Frenzy.mp4'>【高画质】不可视久本 ～ Airmoto of Frenzy</a></p>
-<p><a href='../vid/wxdjb.mp4'>危险的久本</a></p>
-<p><a href='../vid/hrhr.mp4'>武器A</a></p>
-<p><a href='../vid/stjz.mp4'>视听禁止</a></p>
-</blockquote>
-<p><strong>精选猎奇:</strong></p>
-<blockquote><p><a href='../vid/hfj.mp4'>惠方卷</a></p>
-<p><a href='../vid/mjpb.mp4'>密集排布</a></p>
-<p><a href='../vid/wxn.mp4'>伪洗脑</a></p>
-</blockquote>
-<p><strong>无意义作:</strong></p>
-<blockquote><p><a href='../vid/bhlst.mp4'>背后灵薯条</a></p>
-<p><a href='../vid/REDBRUSH.mp4'>红色刷牙</a></p>
-<p><a href='../vid/jpx.mp4'>交配续</a></p>
-</blockquote>
-<p><strong>其余(暂未分类)</strong></p>
-<blockquote><p><a href='../vid/rz0721.mp4'>RZ 0721</a></p>
-<p><a href='../vid/mikucong.mp4'>miku葱</a></p>
-<p><a href='../vid/hwu.mp4'>化物语</a></p>
-<p><a href='../vid/M.mp4'>教主的客串</a></p>
-<p><a href='../vid/afeng.mp4'>a风(480p)</a></p>
-</blockquote>
-<hr />
-<p><span style="color: #C1C1C1">av23 <a href='../vid/av23.mp4'>被蓝蓝路的七变化洗脑后，兴致很高</a></span></p>
-<p>av106 <a href='../vid/av106.MP4'>最终鬼畜蓝蓝路</a></p>
-<p>av107 <a href='../vid/av107.mp4'>最终鬼畜二小姐 </a></p>
-<p>  <span style="color: #C1C1C1">av508</span> <span style="color: #C1C1C1"><a href='../vid/av508diqing.mp4'>【V家】蓝蓝路引发的异变</a></span></p>
-<p>av2557 <a href='https://www.bilibili.com/video/av2557/'> 魔理沙とアリスのクッキーKiss </a></p>
-<p>  av41630 <a href='../vid/av41630.mp4'>琪露諾疾行 </a></p>
-<p>  av10429 <a href='../vid/av10429.mp4'>葛平起源</a></p>
-<p>  <span style="color: #FF0004">av10492 <a href='../vid/p1.mp4'>巨猎奇..创价学会猎奇合辑</a></span></p>
-<p>  av12450 <a href='../vid/av12450.mp4'>fuck you all</a></p>
-<p>  av25674 <a href='../vid/av25674.mp4'>琪露諾的完美瞎眼教室</a></p>
-<p>  av277610 <a href='../vid/av277610-p1.MP4'>总之我也不知道叫什么(p1)</a>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='稿件博物馆'><span>稿件博物馆</span></h1><p><span>部分240P低画质 by:我只是路过的呀</span></p><p><span>官方qq群:</span><a href='https://jq.qq.com/?_wv=1027&amp;k=O3bZUW4I'><span>点我加入</span></a></p><hr /><p><strong><span>av10492</span></strong></p><blockquote><p><span>P1 </span><a href='../vid/p1.mp4'><span>起源</span></a></p><p><span>P2 </span><a href='../vid/p2.mp4'><span>久本薯条 (第一集)</span></a><span> </span><a href='../vid/p2-1.MP4'><span>(第二集)</span></a></p><p><span>P3 </span><a href='../vid/p3.mp4'><span>全员猎奇 (第一集)</span></a><span> </span><a href='../vid/p3-1.mp4'><span>(第二集)</span></a></p><p><span>P4 </span><a href='../vid/p4.mp4'><span>哦做哦做</span></a></p><p><span>P5 </span><a href='../vid/p5.mp4'><span>久本杂交 (第一集)</span></a><span> </span><a href='../vid/p5-1.mp4'><span>(第二集)</span></a></p><p><span>P6 </span><a href='../vid/p6.mp4'><span>益虫观察 (第一集)</span></a><span> </span><a href='../vid/p6-1.mp4'><span>(第二集)</span></a></p><p><span>P7 </span><a href='../vid/p7.mp4'><span>喷血</span></a></p><p><span>P8 </span><a href='../vid/p8.mp4'><span>超级便便便</span></a></p><p>&nbsp;</p></blockquote><p><strong><span>优秀作品:</span></strong></p><blockquote><p><a href='https://pan.2233yun.cn/s/Aagi4/video?name=%E3%80%901080p60fps%E3%80%91%E4%B8%8D%E5%8F%AF%E8%A6%96%E4%B9%85%E6%9C%AC%20%EF%BD%9E%20Airmoto%20of%20Frenzy.mp4'><span>【高画质】不可视久本 ～ Airmoto of Frenzy</span></a></p><p><a href='../vid/wxdjb.mp4'><span>危险的久本</span></a></p><p><a href='../vid/hrhr.mp4'><span>武器A</span></a></p><p><a href='../vid/stjz.mp4'><span>视听禁止</span></a></p></blockquote><p><strong><span>精选猎奇:</span></strong></p><blockquote><p><a href='../vid/hfj.mp4'><span>惠方卷</span></a></p><p><a href='../vid/mjpb.mp4'><span>密集排布</span></a></p><p><a href='../vid/wxn.mp4'><span>伪洗脑</span></a></p></blockquote><p><strong><span>无意义作:</span></strong></p><blockquote><p><a href='../vid/bhlst.mp4'><span>背后灵薯条</span></a></p><p><a href='../vid/REDBRUSH.mp4'><span>红色刷牙</span></a></p><p><a href='../vid/jpx.mp4'><span>交配续</span></a></p></blockquote><p><strong><span>其余(暂未分类)</span></strong></p><blockquote><p><a href='../vid/rz0721.mp4'><span>RZ 0721</span></a></p><p><a href='../vid/mikucong.mp4'><span>miku葱</span></a></p><p><a href='../vid/hwu.mp4'><span>化物语</span></a></p><p><a href='../vid/M.mp4'><span>教主的客串</span></a></p><p><a href='../vid/afeng.mp4'><span>a风(480p)</span></a></p></blockquote><hr /><p><span style="color: #C1C1C1"><span>av23 </span><a href='../vid/av23.mp4'><span>被蓝蓝路的七变化洗脑后，兴致很高</span></a></span></p><p><span>av106 </span><a href='../vid/av106.MP4'><span>最终鬼畜蓝蓝路</span></a></p><p><span>av107 </span><a href='../vid/av107.mp4'><span>最终鬼畜二小姐 </span></a></p><p><span>  </span><span style="color: #C1C1C1"><span>av508</span></span><span> </span><span style="color: #C1C1C1"><a href='../vid/av508diqing.mp4'><span>【V家】蓝蓝路引发的异变</span></a></span></p><p><span>av2557 </span><a href='https://www.bilibili.com/video/av2557/'><span> 魔理沙とアリスのクッキーKiss </span></a></p><p><span>  av41630 </span><a href='../vid/av41630.mp4'><span>琪露諾疾行 </span></a></p><p><span>  av10429 </span><a href='../vid/av10429.mp4'><span>葛平起源</span></a></p><p><span>  </span><span style="color: #FF0004"><span>av10492 </span><a href='../vid/p1.mp4'><span>巨猎奇..创价学会猎奇合辑</span></a></span></p><p><span>  av12450 </span><a href='../vid/av12450.mp4'><span>fuck you all</span></a></p><p><span>  av25674 </span><a href='../vid/av25674.mp4'><span>琪露諾的完美瞎眼教室</span></a></p><p><span>  av277610 </span><a href='../vid/av277610-p1.MP4'><span>总之我也不知道叫什么(p1)</span></a>
 </a>
-  av277610p2 <a href='../vid/av277610-p2.MP4'>总之我也不知道叫什么(p2)</a>
+<span>  av277610p2 </span><a href='../vid/av277610-p2.MP4'><span>总之我也不知道叫什么(p2)</span></a>
 </a>
-  av277610p3 <a href='../vid/av277610-p3.MP4'>总之我也不知道叫什么(p3)</a>
+<span>  av277610p3 </span><a href='../vid/av277610-p3.MP4'><span>总之我也不知道叫什么(p3)</span></a>
 </a>
-  <span style="color: #C1C1C1">av53065</span> <a href='../vid/av53065.mp4'>Happy sex!!!!</a></p>
-<p>  <span style="color: #C1C1C1">av77042</span> <a href='../vid/av77042.mp4'>世界の眼睛 </a></p>
-<p>  av88885 <a href='../vid/av88885.mp4'>カルトマンの妖怪熟女</a></p>
-<p>  <span style="color: #C1C1C1">av88888 <a href='https://pan.2233yun.cn/s/Aagi4/video?name=【1080p60fps】不可視久本%20～%20Airmoto%20of%20Frenzy.mp4'>【1080p60fps】不可視久本</a></span></p>
-<p>  av123688 <a href='../vid/av123688.mp4'>东方喜洋洋</a></p>
-<p>  <span style="color: #FF0004">av122706 <a href='../vid/av129073.mp4'>旅立ちの日に</a></span></p>
-<p>  <span style="color: #FF0004">av129073 <a href='../vid/av122706.mp4'>【摇曳百合】灯里你肿么啦</a></span></p>
-<p>  <span style="color: #FF0004">av318047 <a href='../vid/av318047.mp4'> 【超治愈】阿卡林消失之后♪♪ </a></span></p>
-<p>  <span style="color: #C1C1C1">av129520</span> <span style="color: #C1C1C1"><a href='../vid/av129520.mp4'>sm666 so Happy</a></span></p>
-<p>  <span style="color: #C1C1C1">av42325</span> <span style="color: #C1C1C1"><a href='../vid/av42325.mp4'>小丑的假声-Naget Bird</a></span></p>
-<p>  <span style="color: #C1C1C1">av86497</span> <span style="color: #C1C1C1"><a href='../vid/av86497.mp4'>银河最强的小丑</a></span></p>
-<p>  <span style="color: #FF0004">av73927320 <a href='../vid/av73927320.mp4'>啊↑叭↓叭→叭→叭↓叭↑叭↓叭↓叭↑叭→叭→</a></span></p>
-<p>  av170001 <a href='../vid/av170001.mp4'>保加利亚妖王HOP</a></p>
-<p>  <span style="color: #FF0004">av423257 <a href='../vid/av423257.mp4'>Doll</a>[</p>
-<p>  ](../vid/11009508.mp4)av459582 <a href='../vid/av459582.mp4'>無題</a></p>
-<p>  av882708 <a href='../vid/av882708.mp4'>章鱼哥自杀</a></span></p>
-<p>  av1216934 <a href='../vid/av1216934.mp4'>紫苑镇死亡音乐高质立体声</a></p>
-<p>  av1345966 <a href='../vid/av1345966.mp4'>蓝蓝路广告恶搞版</a></p>
-<p>  av2008644 <a href='../vid/hrhr so happy.mp4'>【音mad】hrhr so happy</a></p>
-<p>  <span style="color: #FE9200"> av268364 <a href='../vid/av268364.mp4'>奈亚子 so happy</a></p>
-<p>  av860481 <a href='../vid/av860481.mp4'>厂长 so Happy -EX mix-【又爽又长】</a></span></p>
-<p>  <span style="color: #FF0004">av10198539 <a href='../vid/av10198539.mp4'>香蕉君热舞(维护中)</a></p>
-<p>av11009508 <a href='../vid/av11009508.mp4'>蕉忍♂疾风传(维护中)</a>[</p>
-<p>av27777777 武器T](../vid/av11009508.mp4)[</p>
-<p style="text-align: left"><a href="more/more.html">参观更多稿件点我(维护中.点进去啥也没有)](../vid/hrhrttt.mp4)</a></p>
-<p></a></span></p></p>
-<hr />
-<p>20210902 <a href='../vid/1.mp4'>测试用</a></p>
-<p>20210718 压缩为<a href='../vid/非常抱歉_1080pFHR.mp4'>20kb/s</a></p>
-<p>20180724 摘选考古链&nbsp;内有改动</p>
-<p style="text-align: center">本站 [更新日志
+<span>  </span><span style="color: #C1C1C1"><span>av53065</span></span><span> </span><a href='../vid/av53065.mp4'><span>Happy sex!!!!</span></a></p><p><span>  </span><span style="color: #C1C1C1"><span>av77042</span></span><span> </span><a href='../vid/av77042.mp4'><span>世界の眼睛 </span></a></p><p><span>  av88885 </span><a href='../vid/av88885.mp4'><span>カルトマンの妖怪熟女</span></a></p><p><span>  </span><span style="color: #C1C1C1"><span>av88888 </span><a href='https://pan.2233yun.cn/s/Aagi4/video?name=【1080p60fps】不可視久本%20～%20Airmoto%20of%20Frenzy.mp4'><span>【1080p60fps】不可視久本</span></a></span></p><p><span>  av123688 </span><a href='../vid/av123688.mp4'><span>东方喜洋洋</span></a></p><p><span>  </span><span style="color: #FF0004"><span>av122706 </span><a href='../vid/av129073.mp4'><span>旅立ちの日に</span></a></span></p><p><span>  </span><span style="color: #FF0004"><span>av129073 </span><a href='../vid/av122706.mp4'><span>【摇曳百合】灯里你肿么啦</span></a></span></p><p><span>  </span><span style="color: #FF0004"><span>av318047 </span><a href='../vid/av318047.mp4'><span> 【超治愈】阿卡林消失之后♪♪ </span></a></span></p><p><span>  </span><span style="color: #C1C1C1"><span>av129520</span></span><span> </span><span style="color: #C1C1C1"><a href='../vid/av129520.mp4'><span>sm666 so Happy</span></a></span></p><p><span>  </span><span style="color: #C1C1C1"><span>av42325</span></span><span> </span><span style="color: #C1C1C1"><a href='../vid/av42325.mp4'><span>小丑的假声-Naget Bird</span></a></span></p><p><span>  </span><span style="color: #C1C1C1"><span>av86497</span></span><span> </span><span style="color: #C1C1C1"><a href='../vid/av86497.mp4'><span>银河最强的小丑</span></a></span></p><p><span>  </span><span style="color: #FF0004"><span>av73927320 </span><a href='../vid/av73927320.mp4'><span>啊↑叭↓叭→叭→叭↓叭↑叭↓叭↓叭↑叭→叭→</span></a></span></p><p><span>  av170001 </span><a href='../vid/av170001.mp4'><span>保加利亚妖王HOP</span></a></p><p><span>  </span><span style="color: #FF0004"><span>av423257 </span><a href='../vid/av423257.mp4'><span>Doll</span></a><span>[</span></p><p><span>  ](../vid/11009508.mp4)av459582 </span><a href='../vid/av459582.mp4'><span>無題</span></a></p><p><span>  av882708 </span><a href='../vid/av882708.mp4'><span>章鱼哥自杀</span></a></span></p><p><span>  av1216934 </span><a href='../vid/av1216934.mp4'><span>紫苑镇死亡音乐高质立体声</span></a></p><p><span>  av1345966 </span><a href='../vid/av1345966.mp4'><span>蓝蓝路广告恶搞版</span></a></p><p><span>  av2008644 </span><a href='../vid/hrhr so happy.mp4'><span>【音mad】hrhr so happy</span></a></p><p><span>  </span><span style="color: #FE9200"><span> av268364 </span><a href='../vid/av268364.mp4'><span>奈亚子 so happy</span></a></p><p><span>  av860481 </span><a href='../vid/av860481.mp4'><span>厂长 so Happy -EX mix-【又爽又长】</span></a></span></p><p><span>  </span><span style="color: #FF0004"><span>av10198539 </span><a href='../vid/av10198539.mp4'><span>香蕉君热舞(维护中)</span></a></p><p><span>av11009508 </span><a href='../vid/av11009508.mp4'><span>蕉忍♂疾风传(维护中)</span></a><span>[</span></p><p><span>av27777777 武器T](../vid/av11009508.mp4)[</span></p><p style="text-align: left"><a href="more/more.html">参观更多稿件点我(维护中.点进去啥也没有)](../vid/hrhrttt.mp4)</a></p><p></a></span></p></p><hr /><p><span>20210902 </span><a href='../vid/1.mp4'><span>测试用</span></a></p><p><span>20210718 压缩为</span><a href='../vid/非常抱歉_1080pFHR.mp4'><span>20kb/s</span></a></p><p><span>20180724 摘选考古链</span>&nbsp;<span>内有改动</span></p><p style="text-align: center">本站 [更新日志
 ](gengxinrzhi.html)
-</p><p style="text-align: left">[作者的bili帐号:uid1752270875/我只是路过的呀](https://b23.tv/AXqKAC)</p>
-<p>友链: <a href='https://ubc2.github.io'>资料参闻馆</a></p>
-<p><a href='https://www.rustedwarfare.com/'>铁锈中文网</a></p>
-<p></p></p>
-<p><img src="../pic/luguo.jpg" referrerpolicy="no-referrer"><img src="../pic/ads.jpg" referrerpolicy="no-referrer"><img src="../pic/ads.jpg" referrerpolicy="no-referrer"></p>
+</p><p style="text-align: left">[作者的bili帐号:uid1752270875/我只是路过的呀](https://b23.tv/AXqKAC)</p><p><span>友链: </span><a href='https://ubc2.github.io'><span>资料参闻馆</span></a></p><p><a href='https://www.rustedwarfare.com/'><span>铁锈中文网</span></a></p><p></p></p><p><img src="../pic/luguo.jpg" referrerpolicy="no-referrer"><img src="../pic/ads.jpg" referrerpolicy="no-referrer"><img src="../pic/ads.jpg" referrerpolicy="no-referrer"></p></div></div>
 </body>
 </html>
